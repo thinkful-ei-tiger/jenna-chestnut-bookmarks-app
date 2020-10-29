@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Prompt:wght@600&display=swap');
+
+body {
+  margin: 0;
+  text-align: center;
+  font-family: "Montserrat", arial;
+  background-image: url("./images/salem-mountains.jpg");
+  background-color: #58588d;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+main {
+    padding: 0 2%;
+}
+
+footer p,
+footer a {
+  background-color: #0000008a;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #afc2ff;
+}
+
+.group {
+  display: flex;
+  text-align: center;
+}
+
+.group p {
+  padding-top: 2%;
+  width: 75%;
+}
+
+.listItem {
+  border: none;
+  border-radius: 10px;
+  padding: 2%;
+}
+
+.item {
+  flex: 1;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.zoom,
+.addOrEdit {
+  margin: 3% auto;
+  display: block;
+  border: 4px solid black;
+  border-radius: 10px;
+  text-align: right;
+  background-color: white;
+  padding: 0 0 2% 0;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.432);
+}
+
+.addOrEdit {
+  border: none;
+  width: 100%;
+  margin: auto;
+}
+
+.dots {
+  font-size: 30px;
+  color: #4a4a8d;
+  margin: 3%;
+}
+
+hr {
+    width: 95%;
+    background-image:url("./images/salem-mountains.jpg");
+    background-attachment: fixed;
+    background-color: #4a4a8d;
+    border: none;
+    height: 5px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}   
+
+h1 {
+  color: white;
+  font-family: "Prompt", arial;
+  font-weight: bold;
+  font-size: 45px;
+  height: 80px;
+  margin: 3% auto 0 auto;
+  letter-spacing: 2px;
+  text-shadow: -1px 2px 0 #000, 1px 3px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
+}
+
+h2 {
+  font-family: "Montserrat", arial;
+  font-size: 25px;
+  letter-spacing: 4px;
+  margin: 7% auto;
+}
+
+.title {
+    width: 70%;
+}
+
+input[type="text"] {
+  margin: 3% auto;
+  width: 75%;
+  background-color: #eaf1ffcb;
+  border-radius: 5px;
+}
+
+input[type="radio"] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+input[type="radio"]:checked + label {
+  background-color: rgb(173, 209, 178);
+}
+
+button:hover,
+select:hover,
+input[type="submit"]:hover,
+input[type="submit"]:hover,
+input[type="radio"]:hover + label {
+  background-color: #899ec7cb;
+}
+
+input[type="radio"]:focus + label {
+  border: 1px solid black;
+}   
+
+button,
+select,
+input[type="submit"] {
+  font-size: 12px;
+  border: none;
+  width: 40%;
+  padding: 10px;
+  background-color: rgb(255, 233, 213);
+  border-radius: 10px;
+  margin: auto;
+}
+
+#newView {
+  margin-right: 20px;
+}
+
+#deleteBookmark {
+  margin-right: 10%;
+}
+
+.zoom a {
+  color: white;
+  padding: 10px 20px;
+  font-style: none;
+  text-decoration: none;
+  background-color: #4a4a8d;
+  border-radius: 20px;
+}
+
+.mini {
+  width: 100%;
+  margin: 3% auto;
+  background-color: rgb(255, 242, 234);
+}
+
+.errorGroup {
+    background-color: lightcoral;
+    border-radius: 10px;
+    display: flex;
+    width: 70%;
+    margin: 2% auto;
+}
+
+#clearError {
+    background-color: transparent;
+    font-size: 40px;
+    padding: 1%;
+    margin: 0;
+}
+
+#clearError:hover {
+    background-color: white;
+}
+
+.mini .dots,
+.mini span {
+  font-size: 18px;
+  margin: 0;
+}
+
+.mini:hover {
+  background-color: rgb(174, 201, 255);
+}
+
+.zoom button {
+  display: inline;
+  margin: 2% 2%;
+}
+
+#minimize {
+  float: right;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  width: 6%;
+  min-width: 50px;
+  padding: none;
+}
+
+#minimize img {
+  border-radius: 10px;
+  width: 100%;
+}
+
+#ratingFilter {
+  margin-bottom: 2%;
+}
+
+#ratingFilter option {
+  font-size: 20px;
+  text-align: center;
+}
+
+#cancel {
+  margin-left: 5%;
+}
+
+input[type="radio"] + label {
+  color: black;
+  font-weight: bold;
+  font-style: none;
+  width: 90%;
+  padding: 10px;
+}
+
+.rating {
+  margin-bottom: 3%;
+}
+
+textarea {
+  display: block;
+  margin: 3% auto 10% auto;
+  width: 90%;
+  background-color: #eaf1ffcb;
+  border-radius: 5px;
+}
+
+fieldset {
+  border: none;
+  text-align: center;
+}
+
+fieldset label,
+fieldset p {
+  color: darkslategray;
+  font-style: italic;
+}
+
+.rating {
+    width: 75%;
+    margin: 3% auto;
+}
+
+@media all and (min-width: 700px) {
+  .mini .dots,
+  .mini span {
+    font-size: 25px;
+  }
+  button,
+  select,
+  input[type="submit"] {
+    font-size: 16px;
+    width: 20%;
+  }
+  textarea {
+      width: 75%;
+      margin: 3% auto; 
+  }
+  h1 {
+    color: white;
+    font-size: 55px;
+  }
+  h2 {
+    padding-top: 15px;
+    font-size: 25px;
+    margin: 2% auto;
+  }
+  .mini,
+  .zoom {
+    margin: 1% auto;
+  }
+  .addOrEdit {
+    width: 75%;
+  }
+}
