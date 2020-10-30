@@ -2,7 +2,7 @@
 
 ## With this app, our user is able to:
 
-- View a list of bookmarks stored in our API (There are a couple of placeholder bookmarks because the API resets every 24 hours)
+- View a list of the bookmarks stored in our API
 - Add a new bookmark with a title, url, rating, and optional description.
 - Edit a created bookmark, which will apply changes to the page and our API
 - Filter by rating, between 1-5
