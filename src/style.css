@@ -15,9 +15,12 @@ main {
     padding: 0 2%;
 }
 
+footer p {
+  background-color: #0000008a;
+}
+
 footer p,
 footer a {
-  background-color: #0000008a;
   color: white;
   font-weight: bold;
   text-decoration: none;
@@ -89,7 +92,7 @@ h1 {
   font-family: "Prompt", arial;
   font-weight: bold;
   font-size: 45px;
-  height: 80px;
+  height: 70px;
   margin: 3% auto 0 auto;
   letter-spacing: 2px;
   text-shadow: -1px 2px 0 #000, 1px 3px 0 #000, 1px -1px 0 #000,
@@ -149,6 +152,7 @@ input[type="submit"] {
 }
 
 #newView {
+  padding: 2%;
   margin-right: 20px;
 }
 
@@ -169,6 +173,11 @@ input[type="submit"] {
   width: 100%;
   margin: 3% auto;
   background-color: rgb(255, 242, 234);
+}
+
+.rating {
+  width: 75%;
+  margin: 3% auto 5% auto;
 }
 
 .errorGroup {
@@ -221,6 +230,7 @@ input[type="submit"] {
 }
 
 #ratingFilter {
+  padding: 2%;
   margin-bottom: 2%;
 }
 
@@ -242,7 +252,8 @@ input[type="radio"] + label {
 }
 
 .rating {
-  margin-bottom: 3%;
+  width: 75%;
+  margin: 1% auto 3% auto;
 }
 
 textarea {
@@ -264,11 +275,6 @@ fieldset p {
   font-style: italic;
 }
 
-.rating {
-    width: 75%;
-    margin: 3% auto;
-}
-
 @media all and (min-width: 700px) {
   .mini .dots,
   .mini span {
@@ -287,6 +293,7 @@ fieldset p {
   h1 {
     color: white;
     font-size: 55px;
+    height: 80px;
   }
   h2 {
     padding-top: 15px;
@@ -299,5 +306,11 @@ fieldset p {
   }
   .addOrEdit {
     width: 75%;
+  }
+  .rating {
+    margin: 1% auto 3% auto;
+  }
+  #ratingFilter {
+    margin-bottom: 1%;
   }
 }

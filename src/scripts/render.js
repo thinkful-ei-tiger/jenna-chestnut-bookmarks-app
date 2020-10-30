@@ -60,7 +60,7 @@ const grabAddOrEdit = () => {
         URL:
         </label>
         <input type="text" name="url" 
-        ${!editing ? `placeholder="https://www.yourwebsite.com">`
+        ${!editing ? `value="https://">`
             : `value="${item.url}">`}
 
         <br>
@@ -117,7 +117,6 @@ const serializeJson = (form) => {
     const formData = new FormData(form);
     const ob = {};
     formData.forEach((val, name) => ob[name] = val);
-    console.log(ob);
     return ob;
 }
 
@@ -184,16 +183,15 @@ const handleBookmarkSubmit = () => {
     $('main').on('submit', '#newBookmarkForm', event => {
         event.preventDefault();
         let bookmark = serializeJson(event.target);
-        console.log(bookmark);
         let id = store.store.toEdit;
         store.store.adding ? // if adding
             api.addBookmark(bookmark)
-                .then(() => store.addToStore(bookmark))
+                .then((resp) => store.addToStore(resp))
                 .then(() => store.store.adding = false)
                 .then(() => render())
                 .catch(error => {
                     store.store.error = error.message;
-                    render();
+                    $('.error').html(grabError());
                 })
             : // if editing
             api.editBookmark(bookmark, id)
@@ -205,7 +203,7 @@ const handleBookmarkSubmit = () => {
                 .then(() => render())
                 .catch(error => {
                     store.store.error = error.message;
-                    render()
+                    $('.error').html(grabError());
                 })
     })
 }
@@ -223,11 +221,8 @@ const handleCancel = () => {
 // listen for clear error button
 const handleClearError = () => {
     $('main').on('click', '#clearError', event => {
-        store.store.adding = false;
-        store.store.editing = false;
-        store.store.toEdit = "";
         store.store.error = null;
-        render();
+        $('.error').html(grabError());
     })
 }
 
@@ -261,7 +256,7 @@ const handleMinimize = () => {
 // listen for a click on a delete button for item
 const handleDeleteClick = () => {
     $('main').on('click', '#deleteBookmark', event => {
-        if (confirm("Are you SURE you want to delete?")) {
+        if (confirm("Are you sure you want to delete? This action cannot be undone!")) {
             let id = getItemId(event.currentTarget);
             api.deleteBookmark(id)
                 .then(() => store.removeItem(id))
@@ -280,7 +275,6 @@ const handleDeleteClick = () => {
 const handleEditClick = () => {
     $('main').on('click', '#editBookmark', event => {
         let id = getItemId(event.currentTarget);
-        console.log(id);
         store.store.editing = true;
         store.store.toEdit = id;
         render();
