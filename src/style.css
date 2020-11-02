@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Prompt:wght@600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Prompt:wght@600&display=swap");
 
 body {
   margin: 0;
@@ -12,7 +12,7 @@ body {
 }
 
 main {
-    padding: 0 2%;
+  padding: 0 2%;
 }
 
 footer p {
@@ -28,6 +28,14 @@ footer a {
 
 footer a:hover {
   color: #afc2ff;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
 }
 
 .group {
@@ -73,19 +81,19 @@ footer a:hover {
 .dots {
   font-size: 30px;
   color: #4a4a8d;
-  margin: 3%;
+  margin-left: 15%;
 }
 
 hr {
-    width: 95%;
-    background-image:url("./images/salem-mountains.jpg");
-    background-attachment: fixed;
-    background-color: #4a4a8d;
-    border: none;
-    height: 5px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}   
+  width: 95%;
+  background-image: url("./images/salem-mountains.jpg");
+  background-attachment: fixed;
+  background-color: #4a4a8d;
+  border: none;
+  height: 5px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
 
 h1 {
   color: white;
@@ -95,8 +103,7 @@ h1 {
   height: 70px;
   margin: 3% auto 0 auto;
   letter-spacing: 2px;
-  text-shadow: -1px 2px 0 #000, 1px 3px 0 #000, 1px -1px 0 #000,
-    -1px -1px 0 #000;
+  text-shadow: 1px 2px #000, -1px 2px #000, -1px -1px #000, 1px -1px #000;
 }
 
 h2 {
@@ -107,7 +114,7 @@ h2 {
 }
 
 .title {
-    width: 70%;
+  width: 70%;
 }
 
 input[type="text"] {
@@ -137,7 +144,7 @@ input[type="radio"]:hover + label {
 
 input[type="radio"]:focus + label {
   border: 1px solid black;
-}   
+}
 
 button,
 select,
@@ -152,7 +159,7 @@ input[type="submit"] {
 }
 
 #newView {
-  padding: 2%;
+  padding: 10px;
   margin-right: 20px;
 }
 
@@ -163,7 +170,6 @@ input[type="submit"] {
 .zoom a {
   color: white;
   padding: 10px 20px;
-  font-style: none;
   text-decoration: none;
   background-color: #4a4a8d;
   border-radius: 20px;
@@ -181,22 +187,22 @@ input[type="submit"] {
 }
 
 .errorGroup {
-    background-color: lightcoral;
-    border-radius: 10px;
-    display: flex;
-    width: 70%;
-    margin: 2% auto;
+  background-color: lightcoral;
+  border-radius: 10px;
+  display: flex;
+  width: 70%;
+  margin: 2% auto;
 }
 
 #clearError {
-    background-color: transparent;
-    font-size: 40px;
-    padding: 1%;
-    margin: 0;
+  background-color: transparent;
+  font-size: 40px;
+  padding: 1%;
+  margin: 0;
 }
 
 #clearError:hover {
-    background-color: white;
+  background-color: white;
 }
 
 .mini .dots,
@@ -221,7 +227,6 @@ input[type="submit"] {
   border: none;
   width: 6%;
   min-width: 50px;
-  padding: none;
 }
 
 #minimize img {
@@ -230,7 +235,7 @@ input[type="submit"] {
 }
 
 #ratingFilter {
-  padding: 2%;
+  padding: 10px;
   margin-bottom: 2%;
 }
 
@@ -246,7 +251,6 @@ input[type="submit"] {
 input[type="radio"] + label {
   color: black;
   font-weight: bold;
-  font-style: none;
   width: 90%;
   padding: 10px;
 }
@@ -287,8 +291,8 @@ fieldset p {
     width: 20%;
   }
   textarea {
-      width: 75%;
-      margin: 3% auto; 
+    width: 75%;
+    margin: 3% auto;
   }
   h1 {
     color: white;
@@ -312,5 +316,9 @@ fieldset p {
   }
   #ratingFilter {
     margin-bottom: 1%;
+  }
+  #ratingFilter,
+  #newView {
+    padding: 20px;
   }
 }

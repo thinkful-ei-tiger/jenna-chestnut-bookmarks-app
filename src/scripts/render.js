@@ -14,7 +14,7 @@ const grabList = () => {
             <option value="4">${grabDots(4)} +</option>    
             <option value="5">${grabDots(5)}</option>
         </select>
-    <div class="list">${grabListItems()}</div>`
+    <ul class="list">${grabListItems()}</ul>`
 }
 
 // grabs our list items
@@ -26,8 +26,8 @@ const grabListItems = () => {
     list.forEach(item => {
         item.expanded ?
             //extended view with description and URL button as well as a delete button
-            listItems += `<div class="group listItem zoom" data-id="${item.id}">
-        <button id="minimize"><img src="../src/images/minimize.png"></button><br>
+            listItems += `<li class="group listItem zoom" data-id="${item.id}">
+        <button id="minimize"><img src="https://gdurl.com/u7-0" alt="minimize button"></button><br>
         <center>
         <h2 class="title">${item.title}</h2>
         <hr>
@@ -37,10 +37,10 @@ const grabListItems = () => {
         <button id="deleteBookmark">DELETE</button>
         <button id="editBookmark">EDIT</button>
         </center>
-        </div>`
+        </li>`
             :
             //otherwise, list normally
-            listItems += `<button class="group mini listItem" data-id="${item.id}"><span class="item">${item.title}</span><span class="item dots">${grabDots(item.rating)}</span></button>`
+            listItems += `<li><button class="group mini listItem" data-id="${item.id}"><span class="item">${item.title}</span><span class="item dots">${grabDots(item.rating)}</span></button></li>`
     })
     return listItems;
 }
@@ -59,7 +59,7 @@ const grabAddOrEdit = () => {
         <label for="url">
         URL:
         </label>
-        <input type="text" name="url" 
+        <input type="text" id="url" name="url" 
         ${!editing ? `value="https://">`
             : `value="${item.url}">`}
 
@@ -67,7 +67,7 @@ const grabAddOrEdit = () => {
         <label for="title">
         TITLE:
         </label>
-        <input type="text" name="title" 
+        <input type="text" id="title" name="title" 
         ${!editing ? `placeholder="Your Website Title"`
             : `value="${item.title}"`}>
         </input>
@@ -156,17 +156,21 @@ const grabDots = (num) => {
             dots = `&#9673&#9673&#9673&#9673&#9673`;
             break;
         default:
-            dots = `[Rating unavailable]`;
+            dots = `&#9678&#9678&#9678&#9678&#9678`;
     }
     return dots;
 }
 
 // --- render function lays out everything based on the state of the store ---
 const render = () => {
+    if (store.store.error !== null) {
+    $('.error').html(grabError())
+    } else {
     !store.store.adding && !store.store.editing ?
         $('main').html(grabList())
         :
         $('main').html(grabAddOrEdit())
+    }
 }
 
 // --- listener functions ---
@@ -184,6 +188,7 @@ const handleBookmarkSubmit = () => {
         event.preventDefault();
         let bookmark = serializeJson(event.target);
         let id = store.store.toEdit;
+
         store.store.adding ? // if adding
             api.addBookmark(bookmark)
                 .then((resp) => store.addToStore(resp))
@@ -191,7 +196,7 @@ const handleBookmarkSubmit = () => {
                 .then(() => render())
                 .catch(error => {
                     store.store.error = error.message;
-                    $('.error').html(grabError());
+                    render();
                 })
             : // if editing
             api.editBookmark(bookmark, id)
@@ -203,7 +208,7 @@ const handleBookmarkSubmit = () => {
                 .then(() => render())
                 .catch(error => {
                     store.store.error = error.message;
-                    $('.error').html(grabError());
+                    render();
                 })
     })
 }
@@ -222,7 +227,7 @@ const handleCancel = () => {
 const handleClearError = () => {
     $('main').on('click', '#clearError', event => {
         store.store.error = null;
-        $('.error').html(grabError());
+        render();
     })
 }
 
